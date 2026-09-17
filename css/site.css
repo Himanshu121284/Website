@@ -287,6 +287,22 @@ footer { background: #0f2818; color: rgba(255,255,255,.7); padding: 70px 0 30px;
 .pill-quo { background: #e6f4ea; color: var(--green-deep); }
 .pill-conv { background: var(--green-deep); color: var(--gold); }
 
+/* ================= LEADERSHIP ================= */
+.leader-card { display: grid; grid-template-columns: 1fr 1.3fr; gap: 48px; align-items: center; background: linear-gradient(135deg, var(--off) 0%, #fff 100%); padding: 48px; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow-md); }
+.leader-photo { position: relative; }
+.leader-photo img { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow-lg); }
+.leader-badge { position: absolute; bottom: -18px; right: -18px; background: linear-gradient(135deg, var(--green-deep), var(--green)); color: var(--white); padding: 18px 22px; border-radius: var(--radius); box-shadow: var(--shadow-md); text-align: center; }
+.leader-badge b { display: block; font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; color: var(--gold); line-height: 1; }
+.leader-badge span { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; }
+.exp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 28px; }
+.exp-item { padding: 18px; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-sm); border-left: 3px solid var(--gold); transition: all .2s; }
+.exp-item:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); border-left-color: var(--purple); }
+.exp-ic { font-size: 1.3rem; margin-bottom: 6px; }
+.exp-item h4 { font-family: 'Cormorant Garamond', serif; color: var(--green-deep); text-transform: none; letter-spacing: 0; font-size: 1.05rem; margin: 0 0 4px; font-weight: 700; }
+.exp-item p { font-size: .8rem; margin: 0; line-height: 1.45; }
+@media (max-width: 1024px) { .leader-card { grid-template-columns: 1fr; padding: 32px; } .exp-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .exp-grid { grid-template-columns: 1fr; } .leader-card { padding: 24px; } .leader-badge { position: static; margin-top: 16px; display: inline-block; } }
+
 /* ================= B2C ================= */
 .b2c-hero { background: linear-gradient(135deg, var(--purple-soft), var(--off)); padding: 60px 40px; border-radius: var(--radius); display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
 .b2c-hero h2 { color: var(--purple); }
