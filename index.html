@@ -9,7 +9,354 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css">
+<style>
+/* Verdanta Naturals — Site Styles */
+:root {
+  --green: #285C3B;
+  --green-deep: #173F2A;
+  --green-soft: #E8EFE9;
+  --purple: #5B3A72;
+  --purple-soft: #F1EAF5;
+  --gold: #C59A3D;
+  --gold-soft: #F5EBD0;
+  --off: #F7F5EF;
+  --char: #252525;
+  --char-soft: #4a4a4a;
+  --white: #ffffff;
+  --line: #e6e2d6;
+  --shadow-sm: 0 1px 2px rgba(23,63,42,.06), 0 4px 12px rgba(23,63,42,.04);
+  --shadow-md: 0 6px 20px rgba(23,63,42,.08), 0 12px 40px rgba(23,63,42,.06);
+  --shadow-lg: 0 20px 60px rgba(23,63,42,.14);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --maxw: 1240px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--char);
+  background: var(--white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,h2,h3,h4 { font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif; color: var(--green-deep); font-weight: 600; letter-spacing: -.01em; margin: 0 0 .5em; text-wrap: balance; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.05; }
+h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); line-height: 1.1; }
+h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
+h4 { font-size: 1.05rem; font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: .02em; text-transform: uppercase; color: var(--green); }
+p { text-wrap: pretty; color: var(--char-soft); }
+a { color: var(--green); text-decoration: none; }
+a:hover { color: var(--purple); }
+
+.container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+.eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+
+/* ================= HEADER ================= */
+.hdr { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.hdr-inner { display: flex; align-items: center; gap: 28px; padding: 14px 0; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand img.brand-logo-lg { height: 120px; width: auto; display: block; }
+.brand { flex-direction: column; align-items: flex-start; gap: 4px; }
+.brand-txt { display: flex; flex-direction: column; line-height: 1.1; margin-top: 2px; }
+.brand-txt b { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--green-deep); letter-spacing: .04em; }
+.brand-txt span { font-size: .58rem; letter-spacing: .16em; color: var(--gold); text-transform: uppercase; margin-top: 2px; }
+@media (max-width: 640px) { .brand img.brand-logo-lg { height: 80px; } }
+.nav { display: flex; gap: 6px; margin-left: auto; align-items: center; }
+.nav a { padding: 10px 12px; font-size: .88rem; font-weight: 500; color: var(--char); border-radius: 6px; transition: all .15s; }
+.nav a:hover { background: var(--green-soft); color: var(--green-deep); }
+.nav a.active { color: var(--green-deep); }
+.hdr-cta { display: flex; gap: 10px; margin-left: 12px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 999px; font-weight: 600; font-size: .88rem; cursor: pointer; border: none; transition: all .2s; text-decoration: none; white-space: nowrap; font-family: inherit; }
+.btn-primary { background: var(--green); color: var(--white); }
+.btn-primary:hover { background: var(--green-deep); color: var(--white); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.btn-gold { background: var(--gold); color: var(--white); }
+.btn-gold:hover { background: #a37d2b; color: var(--white); }
+.btn-ghost { background: transparent; color: var(--green-deep); border: 1.5px solid var(--green); }
+.btn-ghost:hover { background: var(--green); color: var(--white); }
+.btn-wa { background: #25D366; color: var(--white); }
+.btn-wa:hover { background: #128C7E; color: var(--white); }
+.btn-lg { padding: 14px 28px; font-size: .95rem; }
+.btn-sm { padding: 8px 14px; font-size: .8rem; }
+.menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--green-deep); }
+
+/* ================= HERO ================= */
+.hero { position: relative; padding: 90px 0 100px; background: linear-gradient(135deg, var(--off) 0%, #ffffff 55%, var(--green-soft) 100%); overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(197,154,61,.08), transparent 70%); border-radius: 50%; }
+.hero::after { content: ''; position: absolute; bottom: -150px; left: -150px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(91,58,114,.06), transparent 70%); border-radius: 50%; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
+.hero h1 span.acc { color: var(--gold); font-style: italic; }
+.hero .lede { font-size: 1.15rem; color: var(--char-soft); margin: 20px 0 32px; max-width: 560px; }
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-stats { display: flex; gap: 40px; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); }
+.hero-stats .stat b { display: block; font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--green-deep); line-height: 1; }
+.hero-stats .stat span { font-size: .78rem; color: var(--char-soft); letter-spacing: .05em; text-transform: uppercase; }
+.hero-visual { position: relative; }
+.hero-visual img { width: 100%; height: auto; border-radius: var(--radius); box-shadow: var(--shadow-lg); }
+.hero-badge { position: absolute; top: 20px; left: -20px; background: var(--white); padding: 14px 20px; border-radius: 999px; box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 10px; font-size: .82rem; font-weight: 600; color: var(--green-deep); }
+.hero-badge::before { content: ''; width: 8px; height: 8px; background: var(--gold); border-radius: 50%; box-shadow: 0 0 0 4px rgba(197,154,61,.2); }
+.hero-badge-2 { position: absolute; bottom: 24px; right: -16px; background: var(--green-deep); color: var(--white); padding: 16px 20px; border-radius: var(--radius-sm); box-shadow: var(--shadow-md); font-size: .82rem; max-width: 220px; }
+.hero-badge-2 b { display: block; color: var(--gold); font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; margin-bottom: 4px; }
+
+/* ================= SECTIONS ================= */
+section { padding: 80px 0; }
+.section-head { text-align: center; max-width: 720px; margin: 0 auto 56px; }
+.section-head p { font-size: 1.05rem; margin-top: 12px; }
+.section-alt { background: var(--off); }
+.section-dark { background: var(--green-deep); color: var(--white); }
+.section-dark h2, .section-dark h3, .section-dark h4 { color: var(--white); }
+.section-dark p { color: rgba(255,255,255,.75); }
+
+/* ================= B2B / B2C SPLIT ================= */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.split-card { position: relative; padding: 44px; border-radius: var(--radius); background: var(--white); border: 1px solid var(--line); transition: all .25s; overflow: hidden; }
+.split-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: transparent; }
+.split-card.b2b { background: linear-gradient(135deg, var(--green-deep), var(--green)); color: var(--white); border: none; }
+.split-card.b2b h3, .split-card.b2b h4 { color: var(--white); }
+.split-card.b2b p { color: rgba(255,255,255,.85); }
+.split-card.b2b::after { content: ''; position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(197,154,61,.25), transparent 70%); border-radius: 50%; }
+.split-card.b2c { background: linear-gradient(135deg, #fff, var(--purple-soft)); }
+.split-card .tag { display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: .72rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 700; margin-bottom: 16px; }
+.split-card.b2b .tag { background: var(--gold); color: var(--green-deep); }
+.split-card.b2c .tag { background: var(--purple); color: var(--white); }
+.split-card ul { list-style: none; padding: 0; margin: 20px 0 28px; }
+.split-card ul li { padding: 8px 0; padding-left: 24px; position: relative; font-size: .92rem; }
+.split-card ul li::before { content: '›'; position: absolute; left: 8px; font-weight: 700; color: var(--gold); }
+.split-card.b2c ul li::before { color: var(--purple); }
+
+/* ================= CATEGORY GRID ================= */
+.cat-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
+.cat-item { padding: 24px 16px; text-align: center; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-sm); cursor: pointer; transition: all .2s; }
+.cat-item:hover { border-color: var(--green); background: var(--green-soft); transform: translateY(-2px); }
+.cat-item .ic { font-size: 1.8rem; margin-bottom: 8px; display: block; }
+.cat-item .lb { font-size: .82rem; font-weight: 600; color: var(--char); }
+
+/* ================= PRODUCT GRID ================= */
+.product-filters { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px; }
+.filter-chip { padding: 10px 20px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--white); cursor: pointer; font-size: .85rem; font-weight: 500; transition: all .15s; font-family: inherit; color: var(--char); }
+.filter-chip:hover { border-color: var(--green); color: var(--green); }
+.filter-chip.active { background: var(--green); color: var(--white); border-color: var(--green); }
+.p-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.p-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: all .25s; display: flex; flex-direction: column; }
+.p-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: transparent; }
+.p-img { aspect-ratio: 16/10; overflow: hidden; background: var(--off); position: relative; }
+.p-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.p-card:hover .p-img img { transform: scale(1.05); }
+.p-tag { position: absolute; top: 12px; left: 12px; background: var(--white); padding: 4px 10px; border-radius: 999px; font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--green-deep); }
+.p-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+.p-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; margin: 0 0 6px; }
+.p-cat { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 10px; }
+.p-desc { font-size: .88rem; margin: 8px 0 16px; flex: 1; }
+.p-forms { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 16px; }
+.p-forms span { font-size: .68rem; padding: 3px 8px; background: var(--green-soft); color: var(--green-deep); border-radius: 4px; font-weight: 500; }
+.p-actions { display: flex; gap: 8px; margin-top: auto; }
+.p-actions .btn { flex: 1; justify-content: center; }
+
+/* ================= WHY / QUALITY ================= */
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.why-item { padding: 32px; background: var(--white); border-radius: var(--radius); border: 1px solid var(--line); transition: all .2s; }
+.why-item:hover { border-color: var(--gold); box-shadow: var(--shadow-md); }
+.why-ic { width: 52px; height: 52px; border-radius: 12px; background: var(--green-soft); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 16px; }
+.why-item.dark .why-ic { background: rgba(255,255,255,.1); }
+
+.quality-flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+.q-step { padding: 24px; background: var(--white); border-radius: var(--radius); border-left: 4px solid var(--gold); }
+.q-step b { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold); display: block; margin-bottom: 8px; }
+.q-step h4 { color: var(--green-deep); margin: 0 0 8px; text-transform: none; letter-spacing: 0; font-size: 1.1rem; font-family: 'Cormorant Garamond',serif; font-weight: 700; }
+.q-step p { font-size: .88rem; margin: 0; }
+
+/* ================= APPLICATIONS ================= */
+.apps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.app-card { padding: 28px 20px; background: var(--white); border-radius: var(--radius); text-align: center; border: 1px solid var(--line); transition: all .2s; cursor: pointer; }
+.app-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--green); }
+.app-card .ic { font-size: 2.2rem; margin-bottom: 12px; display: block; }
+.app-card h4 { color: var(--green-deep); font-family: inherit; text-transform: none; letter-spacing: 0; margin: 0 0 6px; font-size: 1rem; }
+.app-card p { font-size: .82rem; margin: 0; }
+
+/* ================= EXPORT SECTION ================= */
+.export-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.export-viz { position: relative; padding: 40px; background: linear-gradient(135deg, var(--green-deep), var(--green)); border-radius: var(--radius); color: var(--white); }
+.export-viz h3 { color: var(--white); font-size: 1.8rem; }
+.export-features { list-style: none; padding: 0; margin: 24px 0; }
+.export-features li { padding: 10px 0 10px 32px; position: relative; font-size: .95rem; color: rgba(255,255,255,.9); border-bottom: 1px solid rgba(255,255,255,.1); }
+.export-features li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+
+/* ================= FINAL CTA ================= */
+.final-cta { background: linear-gradient(135deg, var(--green-deep), var(--green) 60%, var(--purple)); padding: 100px 0; text-align: center; color: var(--white); position: relative; overflow: hidden; }
+.final-cta::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='20' cy='20' r='1' fill='%23C59A3D' opacity='0.15'/><circle cx='80' cy='60' r='1' fill='%23C59A3D' opacity='0.15'/><circle cx='50' cy='80' r='1' fill='%23C59A3D' opacity='0.15'/></svg>"); }
+.final-cta h2 { color: var(--white); font-size: clamp(2rem, 4vw, 3rem); }
+.final-cta p { color: rgba(255,255,255,.85); font-size: 1.1rem; max-width: 600px; margin: 16px auto 32px; }
+.final-cta .btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; }
+
+/* ================= FOOTER ================= */
+footer { background: #0f2818; color: rgba(255,255,255,.7); padding: 70px 0 30px; }
+.foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 40px; margin-bottom: 40px; }
+.foot-grid h4 { color: var(--gold); font-family: inherit; letter-spacing: .1em; margin-bottom: 18px; font-size: .82rem; }
+.foot-grid ul { list-style: none; padding: 0; margin: 0; }
+.foot-grid li { padding: 6px 0; }
+.foot-grid a { color: rgba(255,255,255,.7); font-size: .9rem; }
+.foot-grid a:hover { color: var(--gold); }
+.foot-brand img.foot-logo-lg { height: 160px; margin-bottom: 14px; background: rgba(255,255,255,.96); padding: 10px 14px; border-radius: 12px; display: block; }
+.foot-brand-name { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; color: var(--gold); letter-spacing: .06em; font-weight: 700; margin-bottom: 12px; }
+.foot-brand p { font-size: .9rem; color: rgba(255,255,255,.6); margin: 8px 0 20px; }
+@media (max-width: 640px) { .foot-brand img.foot-logo-lg { height: 120px; } }
+.foot-social { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+.foot-social a { display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,.06); color: rgba(255,255,255,.85); font-size: .82rem; font-weight: 500; text-decoration: none; transition: all .18s; border: 1px solid rgba(255,255,255,.08); }
+.foot-social a:hover { background: var(--gold); color: var(--green-deep); border-color: var(--gold); transform: translateX(2px); }
+.foot-social a svg { width: 16px; height: 16px; flex-shrink: 0; }
+.foot-social a span { letter-spacing: .02em; }
+.foot-contact { font-size: .88rem; line-height: 1.7; }
+.foot-contact b { color: rgba(255,255,255,.9); display: block; margin-bottom: 4px; font-weight: 500; }
+.foot-bottom { padding-top: 24px; border-top: 1px solid rgba(255,255,255,.1); display: flex; justify-content: space-between; align-items: center; font-size: .82rem; color: rgba(255,255,255,.5); flex-wrap: wrap; gap: 12px; }
+.foot-bottom a { color: rgba(255,255,255,.6); margin: 0 8px; }
+
+/* ================= WHATSAPP FLOAT ================= */
+.wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 90; background: #25D366; color: white; padding: 14px 20px; border-radius: 999px; font-weight: 600; font-size: .9rem; box-shadow: 0 10px 30px rgba(37,211,102,.4); display: flex; align-items: center; gap: 10px; cursor: pointer; text-decoration: none; transition: all .2s; }
+.wa-float:hover { transform: translateY(-2px) scale(1.03); color: white; box-shadow: 0 14px 40px rgba(37,211,102,.5); }
+.wa-float .wa-ic { width: 24px; height: 24px; }
+
+/* ================= MODAL ================= */
+.modal-backdrop { position: fixed; inset: 0; background: rgba(23,63,42,.5); backdrop-filter: blur(6px); z-index: 200; display: none; align-items: flex-start; justify-content: center; padding: 40px 20px; overflow-y: auto; }
+.modal-backdrop.open { display: flex; animation: fadeIn .2s; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.modal { background: var(--white); border-radius: var(--radius); max-width: 900px; width: 100%; box-shadow: var(--shadow-lg); position: relative; margin: auto; animation: slideUp .3s; }
+@keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.modal-close { position: absolute; top: 14px; right: 14px; width: 36px; height: 36px; border-radius: 50%; border: none; background: var(--off); font-size: 1.2rem; cursor: pointer; color: var(--char); z-index: 2; }
+.modal-close:hover { background: var(--green); color: var(--white); }
+.modal-header { padding: 32px 40px 20px; border-bottom: 1px solid var(--line); }
+.modal-header .eyebrow { margin-bottom: 8px; }
+.modal-header h2 { margin: 0; font-size: 2rem; }
+.modal-header p { margin: 8px 0 0; font-size: .95rem; }
+.modal-body { padding: 32px 40px; }
+.modal-footer { padding: 20px 40px 32px; border-top: 1px solid var(--line); display: flex; justify-content: flex-end; gap: 10px; }
+
+/* ================= FORMS ================= */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; }
+.form-grid .full { grid-column: 1 / -1; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-size: .78rem; font-weight: 600; color: var(--green-deep); letter-spacing: .04em; }
+.field label .req { color: #d13d3d; }
+.field input, .field select, .field textarea { padding: 11px 13px; border: 1.5px solid var(--line); border-radius: 8px; font-family: inherit; font-size: .92rem; background: var(--white); color: var(--char); transition: border-color .15s; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px rgba(40,92,59,.1); }
+.field textarea { resize: vertical; min-height: 90px; }
+.form-section { margin-bottom: 28px; }
+.form-section-title { font-size: .78rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); font-weight: 700; padding-bottom: 8px; margin-bottom: 16px; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 10px; }
+.form-section-title span { width: 24px; height: 24px; border-radius: 50%; background: var(--gold); color: var(--white); display: inline-flex; align-items: center; justify-content: center; font-size: .78rem; }
+.check-row { display: flex; align-items: flex-start; gap: 10px; font-size: .88rem; color: var(--char-soft); padding: 8px 0; }
+.check-row input[type="checkbox"] { margin-top: 3px; }
+.radio-row { display: flex; gap: 20px; padding: 6px 0; }
+.radio-row label { font-size: .9rem; font-weight: 500; color: var(--char); display: flex; align-items: center; gap: 6px; letter-spacing: 0; text-transform: none; cursor: pointer; }
+
+.form-success { text-align: center; padding: 60px 40px; }
+.form-success .ok-ic { width: 80px; height: 80px; border-radius: 50%; background: var(--green-soft); color: var(--green); display: inline-flex; align-items: center; justify-content: center; font-size: 2.5rem; margin-bottom: 20px; }
+.form-success h2 { color: var(--green-deep); }
+.form-success .eid { display: inline-block; padding: 10px 20px; background: var(--gold-soft); border-radius: 8px; font-family: 'JetBrains Mono', 'Courier New', monospace; font-weight: 700; color: var(--green-deep); letter-spacing: .05em; margin: 16px 0; border: 1.5px dashed var(--gold); }
+
+/* ================= ABOUT / STATS ================= */
+.about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; }
+.about-visual { position: relative; }
+.about-visual img { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow-lg); }
+.about-badge { position: absolute; padding: 20px 24px; background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow-md); }
+.about-badge b { display: block; font-family: 'Cormorant Garamond',serif; font-size: 2rem; color: var(--gold); line-height: 1; }
+.about-badge span { font-size: .78rem; color: var(--char-soft); }
+.about-badge.b1 { top: 20px; left: -20px; }
+.about-badge.b2 { bottom: 20px; right: -20px; }
+
+.pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 32px; }
+.pillar { padding: 20px; background: var(--white); border-radius: var(--radius-sm); border-left: 3px solid var(--gold); }
+.pillar h4 { color: var(--green-deep); text-transform: none; letter-spacing: 0; font-family: 'Cormorant Garamond',serif; font-weight: 700; font-size: 1.15rem; margin-bottom: 4px; }
+.pillar p { font-size: .86rem; margin: 0; }
+
+/* ================= CONTACT ================= */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; }
+.contact-info-card { padding: 32px; background: linear-gradient(135deg, var(--green-deep), var(--green)); color: var(--white); border-radius: var(--radius); }
+.contact-info-card h3 { color: var(--white); font-size: 1.5rem; }
+.contact-info-card .ci-row { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.15); display: flex; gap: 14px; align-items: flex-start; }
+.contact-info-card .ci-row:last-child { border-bottom: none; }
+.contact-info-card .ci-ic { width: 40px; height: 40px; border-radius: 10px; background: rgba(197,154,61,.2); color: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0; }
+.contact-info-card .ci-txt b { display: block; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; font-weight: 600; }
+.contact-info-card .ci-txt { font-size: .92rem; color: rgba(255,255,255,.9); }
+.contact-info-card .ci-txt a { color: rgba(255,255,255,.9); }
+.contact-info-card .ci-txt a:hover { color: var(--gold); }
+
+/* ================= ADMIN DASHBOARD PREVIEW ================= */
+.admin-preview { background: var(--off); padding: 40px; border-radius: var(--radius); border: 1px solid var(--line); }
+.admin-preview .adm-hdr { display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid var(--line); }
+.adm-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+.adm-stat { padding: 16px; background: var(--white); border-radius: 8px; border-left: 3px solid var(--green); }
+.adm-stat b { display: block; font-family: 'Cormorant Garamond',serif; font-size: 1.6rem; color: var(--green-deep); line-height: 1; }
+.adm-stat span { font-size: .74rem; color: var(--char-soft); text-transform: uppercase; letter-spacing: .05em; }
+.adm-stat.gold { border-left-color: var(--gold); }
+.adm-stat.gold b { color: var(--gold); }
+.adm-stat.purple { border-left-color: var(--purple); }
+.adm-stat.purple b { color: var(--purple); }
+.adm-table { background: var(--white); border-radius: 8px; overflow: hidden; }
+.adm-table table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+.adm-table th { text-align: left; padding: 12px 16px; background: var(--green-soft); font-weight: 600; color: var(--green-deep); font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; }
+.adm-table td { padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.adm-table tr:last-child td { border-bottom: none; }
+.adm-table .pill { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: .7rem; font-weight: 600; letter-spacing: .04em; }
+.pill-new { background: var(--gold-soft); color: #7a5d1e; }
+.pill-review { background: var(--purple-soft); color: var(--purple); }
+.pill-quo { background: #e6f4ea; color: var(--green-deep); }
+.pill-conv { background: var(--green-deep); color: var(--gold); }
+
+/* ================= LEADERSHIP ================= */
+.leader-card { display: grid; grid-template-columns: 1fr 1.3fr; gap: 48px; align-items: center; background: linear-gradient(135deg, var(--off) 0%, #fff 100%); padding: 48px; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow-md); }
+.leader-photo { position: relative; }
+.leader-photo img { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow-lg); }
+.leader-badge { position: absolute; bottom: -18px; right: -18px; background: linear-gradient(135deg, var(--green-deep), var(--green)); color: var(--white); padding: 18px 22px; border-radius: var(--radius); box-shadow: var(--shadow-md); text-align: center; }
+.leader-badge b { display: block; font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; color: var(--gold); line-height: 1; }
+.leader-badge span { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; }
+.exp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 28px; }
+.exp-item { padding: 18px; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-sm); border-left: 3px solid var(--gold); transition: all .2s; }
+.exp-item:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); border-left-color: var(--purple); }
+.exp-ic { font-size: 1.3rem; margin-bottom: 6px; }
+.exp-item h4 { font-family: 'Cormorant Garamond', serif; color: var(--green-deep); text-transform: none; letter-spacing: 0; font-size: 1.05rem; margin: 0 0 4px; font-weight: 700; }
+.exp-item p { font-size: .8rem; margin: 0; line-height: 1.45; }
+@media (max-width: 1024px) { .leader-card { grid-template-columns: 1fr; padding: 32px; } .exp-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .exp-grid { grid-template-columns: 1fr; } .leader-card { padding: 24px; } .leader-badge { position: static; margin-top: 16px; display: inline-block; } }
+
+/* ================= B2C ================= */
+.b2c-hero { background: linear-gradient(135deg, var(--purple-soft), var(--off)); padding: 60px 40px; border-radius: var(--radius); display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+.b2c-hero h2 { color: var(--purple); }
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .hero-grid, .about-grid, .export-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .p-grid { grid-template-columns: repeat(3, 1fr); }
+  .apps-grid { grid-template-columns: repeat(3, 1fr); }
+  .cat-grid { grid-template-columns: repeat(3, 1fr); }
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+  .quality-flow { grid-template-columns: repeat(2, 1fr); }
+  .nav { display: none; }
+  .menu-toggle { display: block; }
+  .nav.open { display: flex; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background: var(--white); padding: 20px; box-shadow: var(--shadow-md); gap: 4px; align-items: stretch; }
+  .foot-grid { grid-template-columns: 1fr 1fr; }
+  .split { grid-template-columns: 1fr; }
+  .adm-stats { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  section { padding: 60px 0; }
+  .hero { padding: 50px 0 60px; }
+  .hero-stats { gap: 20px; flex-wrap: wrap; }
+  .p-grid, .apps-grid, .cat-grid, .why-grid, .quality-flow, .foot-grid, .pillars { grid-template-columns: 1fr; }
+  .p-grid, .apps-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-visual { display: none; }
+  .hdr-cta .btn-ghost { display: none; }
+  .form-grid { grid-template-columns: 1fr; }
+  .modal-header, .modal-body, .modal-footer { padding-left: 20px; padding-right: 20px; }
+  .brand-txt { display: none; }
+  .b2c-hero { grid-template-columns: 1fr; padding: 32px 20px; }
+  .wa-float span { display: none; }
+  .wa-float { padding: 14px; }
+}
+
+</style>
 <link rel="icon" href="assets/logo.png">
 </head>
 <body>
@@ -18,11 +365,7 @@
 <header class="hdr">
   <div class="container hdr-inner">
     <a class="brand" href="#home">
-      <img src="assets/logo.png" alt="Verdanta Naturals LLP logo">
-      <div class="brand-txt">
-        <b>VERDANTA NATURALS</b>
-        <span>Pure by Nature · Powered by Purpose</span>
-      </div>
+      <img src="assets/logo.png" alt="Verdanta Naturals LLP logo" class="brand-logo-lg" width="120" height="120">
     </a>
     <nav class="nav">
       <a href="#home" class="active">Home</a>
@@ -378,6 +721,7 @@
           <div class="ci-ic">✉️</div>
           <div class="ci-txt">
             <b>Email</b>
+            <a href="mailto:info@verdantanaturals.com">info@verdantanaturals.com</a><br>
             <a href="mailto:verdantanaturalsinfo@yahoo.com">verdantanaturalsinfo@yahoo.com</a>
           </div>
         </div>
@@ -385,16 +729,14 @@
           <div class="ci-ic">📞</div>
           <div class="ci-txt">
             <b>Phone / WhatsApp</b>
-            <a href="tel:+919925551736">+91 99255 51736</a><br>
-            <a href="tel:+918758869498">+91 87588 69498</a><br>
-            <a href="tel:+919978527653">+91 99785 27653</a>
+            <a href="tel:+919925551736">+91 99255 51736</a>
           </div>
         </div>
         <div class="ci-row">
           <div class="ci-ic">🏢</div>
           <div class="ci-txt">
-            <b>LLPIN</b>
-            ADA-7272 · Incorporated 30 July 2026
+            <b>LLPIN &middot; GSTIN</b>
+            LLPIN: ADA-7272<br>GSTIN: 24ABCFV6438L1ZS<br>Incorporated 30 July 2026
           </div>
         </div>
         <a href="https://maps.app.goo.gl/CaiqVfwcp8JJdT6BA?g_st=aw" target="_blank" class="btn btn-gold" style="margin-top:20px;">Open in Google Maps →</a>
@@ -440,13 +782,21 @@
   <div class="container">
     <div class="foot-grid">
       <div class="foot-brand">
-        <img src="assets/logo.png" alt="Verdanta Naturals">
+        <img src="assets/logo.png" alt="Verdanta Naturals" class="foot-logo-lg" width="160" height="160">
         <p>Premium dehydrated fruits, vegetables and natural food ingredients from Vadodara, India — serving domestic and international markets.</p>
         <div class="foot-social">
-          <a href="#" aria-label="LinkedIn">in</a>
-          <a href="#" aria-label="Facebook">f</a>
-          <a href="#" aria-label="Instagram">◉</a>
-          <a href="#" aria-label="YouTube">▶</a>
+          <a href="https://www.linkedin.com/company/verdantanaturals/?viewAsMember=true" target="_blank" rel="noopener" aria-label="Verdanta Naturals on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.26 2.37 4.26 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+            <span>Verdanta Naturals</span>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61594045656613" target="_blank" rel="noopener" aria-label="Verdanta Naturals on Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.7 4.53-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.09 24 18.1 24 12.07z"/></svg>
+            <span>Verdanta Naturals</span>
+          </a>
+          <a href="https://www.instagram.com/verdantanaturalsllp?stkn=Nnl5azQ5eXFvZHpp" target="_blank" rel="noopener" aria-label="Verdanta Naturals on Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.39C1.34 2.69.93 3.36.62 4.15.32 4.9.12 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.39 2.13.67.67 1.34 1.08 2.13 1.39.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.39.67-.67 1.08-1.34 1.39-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.39-2.13C21.31 1.34 20.64.93 19.85.62c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
+            <span>Verdanta Naturals</span>
+          </a>
         </div>
       </div>
       <div>
@@ -475,13 +825,15 @@
         <b>Verdanta Naturals LLP</b>
         Plot No. 1/5, Royal Estate,<br>Mahmadpura, Dabhoi, Thuvavi,<br>Vadodara, Gujarat 391107, India
         <br><br>
-        <b>Email</b><a href="mailto:verdantanaturalsinfo@yahoo.com">verdantanaturalsinfo@yahoo.com</a>
-        <br>
-        <b>Phone</b><a href="tel:+919925551736">+91 99255 51736</a>
+        <b>Email</b>
+        <a href="mailto:info@verdantanaturals.com">info@verdantanaturals.com</a><br>
+        <a href="mailto:verdantanaturalsinfo@yahoo.com">verdantanaturalsinfo@yahoo.com</a>
+        <br><br>
+        <b>Phone / WhatsApp</b><a href="tel:+919925551736">+91 99255 51736</a>
       </div>
     </div>
     <div class="foot-bottom">
-      <div>© 2026 Verdanta Naturals LLP · LLPIN: ADA-7272 · All rights reserved.</div>
+      <div>© 2026 Verdanta Naturals LLP · LLPIN: ADA-7272 · GSTIN: 24ABCFV6438L1ZS · All rights reserved.</div>
       <div>
         <a href="#">Privacy Policy</a> ·
         <a href="#">Terms &amp; Conditions</a> ·
@@ -523,7 +875,447 @@
   </div>
 </div>
 
-<script src="data/products.js"></script>
-<script src="js/site.js"></script>
+<script>
+// Verdanta Naturals — Product Catalog
+window.VN_PRODUCTS = [
+  {
+    id: 'VN-ONP-001', name: 'Onion Powder', category: 'Powders', img: 'assets/onion.jpg',
+    forms: ['Powder', 'Flakes', 'Granules', 'Chopped', 'Kibbled'],
+    short: 'Uncompromised savory depth. Dissolves instantly into blends, dry rubs and premixes.',
+    applications: ['Seasonings', 'Soups & Sauces', 'Bakery', 'Ready-to-Eat'],
+    b2b: true, b2c: true, featured: true,
+    packSizes: ['100g', '250g', '500g', '1kg (Retail)', '5kg / 10kg (Bulk)', '25kg (Bulk)'],
+    highlights: ['Zero preservatives', 'No added colors', 'Hygienically processed', 'Available in Red or White']
+  },
+  {
+    id: 'VN-ONF-002', name: 'Onion Flakes', category: 'Flakes', img: 'assets/onion.jpg',
+    forms: ['Flakes', 'Minced', 'Chopped'],
+    short: 'Reconstitutes to near-fresh texture. Ideal for soups, biryanis, and pizza toppings.',
+    applications: ['Soups & Sauces', 'HoReCa', 'Ready-to-Eat', 'Food Manufacturing'],
+    b2b: true, b2c: true, featured: true,
+    packSizes: ['200g', '500g', '1kg', '10kg', '25kg'],
+    highlights: ['Red / White variants', 'Toasted variant available', 'Consistent cut size']
+  },
+  {
+    id: 'VN-GAP-003', name: 'Garlic Powder', category: 'Powders', img: 'assets/garlic.jpg',
+    forms: ['Powder', 'Granules', 'Flakes'],
+    short: 'Pure garlic pungency without moisture. Perfect for seasoning blends and marinades.',
+    applications: ['Seasonings', 'Bakery', 'Food Manufacturing', 'Nutraceuticals'],
+    b2b: true, b2c: true, featured: true,
+    packSizes: ['100g', '250g', '500g', '1kg', '10kg', '25kg'],
+    highlights: ['Rich aroma', 'Consistent mesh', 'Suitable for premixes']
+  },
+  {
+    id: 'VN-GAF-004', name: 'Garlic Flakes', category: 'Flakes', img: 'assets/garlic.jpg',
+    forms: ['Flakes', 'Sliced', 'Chopped'],
+    short: 'Clean, uniform garlic flakes ready to rehydrate for pastes, curries and toppings.',
+    applications: ['HoReCa', 'Ready-to-Eat', 'Food Manufacturing'],
+    b2b: true, b2c: true,
+    packSizes: ['250g', '500g', '1kg', '10kg', '25kg'],
+    highlights: ['Long shelf life', 'Uniform cut', 'Bulk packaging available']
+  },
+  {
+    id: 'VN-POP-005', name: 'Potato Powder', category: 'Powders', img: 'assets/potato.jpg',
+    forms: ['Powder', 'Flakes', 'Granules', 'Dice', 'Slices'],
+    short: 'A versatile carrier and thickener for soups, snacks and instant food formulations.',
+    applications: ['Soups & Sauces', 'Bakery', 'Ready-to-Eat', 'Food Manufacturing'],
+    b2b: true, b2c: false, featured: true,
+    packSizes: ['500g', '1kg', '10kg', '25kg'],
+    highlights: ['Neutral flavor', 'Excellent binding', 'Consistent particle size']
+  },
+  {
+    id: 'VN-POF-006', name: 'Potato Flakes', category: 'Flakes', img: 'assets/potato.jpg',
+    forms: ['Flakes', 'Granules'],
+    short: 'Instant potato flakes for mash, snacks and reconstituted foods.',
+    applications: ['Ready-to-Eat', 'HoReCa', 'Food Manufacturing'],
+    b2b: true, b2c: true,
+    packSizes: ['500g', '1kg', '10kg', '25kg'],
+    highlights: ['Quick rehydration', 'Smooth texture']
+  },
+  {
+    id: 'VN-BAP-007', name: 'Banana Powder', category: 'Powders', img: 'assets/banana.jpg',
+    forms: ['Powder', 'Flakes', 'Dice', 'Chips'],
+    short: 'Naturally sweet, energy-dense powder for smoothies, baby food and nutraceuticals.',
+    applications: ['Beverages', 'Bakery', 'Nutraceuticals', 'Retail'],
+    b2b: true, b2c: true, featured: true,
+    packSizes: ['200g', '500g', '1kg', '10kg', '25kg'],
+    highlights: ['Ripe banana processed', 'High potassium naturally', 'Clean label']
+  },
+  {
+    id: 'VN-BAF-008', name: 'Banana Flakes', category: 'Flakes', img: 'assets/banana.jpg',
+    forms: ['Flakes', 'Chips', 'Dice'],
+    short: 'Crunchy banana flakes for cereals, granolas and snack formulations.',
+    applications: ['Bakery', 'Retail', 'Ready-to-Eat'],
+    b2b: true, b2c: true,
+    packSizes: ['200g', '500g', '1kg', '10kg'],
+    highlights: ['Crunchy texture', 'Natural sweetness']
+  },
+  {
+    id: 'VN-TOP-009', name: 'Tomato Powder', category: 'Powders', img: 'assets/tomato.jpg',
+    forms: ['Powder', 'Flakes', 'Dice', 'Granules'],
+    short: 'Concentrated tomato flavor and color for sauces, soups and seasoning blends.',
+    applications: ['Soups & Sauces', 'Seasonings', 'Food Manufacturing'],
+    b2b: true, b2c: false,
+    packSizes: ['500g', '1kg', '10kg', '25kg'],
+    highlights: ['Deep red color', 'Rich umami', 'No added color']
+  },
+  {
+    id: 'VN-CAP-010', name: 'Carrot Powder', category: 'Powders', img: 'assets/carrot.jpg',
+    forms: ['Powder', 'Flakes', 'Dice', 'Shredded'],
+    short: 'Natural beta-carotene rich powder for beverages, nutraceuticals and bakery.',
+    applications: ['Beverages', 'Nutraceuticals', 'Bakery'],
+    b2b: true, b2c: true,
+    packSizes: ['250g', '500g', '1kg', '10kg'],
+    highlights: ['Vibrant orange', 'Vitamin-rich', 'Clean label']
+  },
+  {
+    id: 'VN-BEP-011', name: 'Beetroot Powder', category: 'Powders', img: 'assets/beetroot.jpg',
+    forms: ['Powder', 'Flakes', 'Dice', 'Slices', 'Shredded'],
+    short: 'Rich crimson powder — a natural colorant and functional ingredient.',
+    applications: ['Beverages', 'Nutraceuticals', 'Bakery', 'Confectionery'],
+    b2b: true, b2c: true, featured: true,
+    packSizes: ['200g', '500g', '1kg', '10kg', '25kg'],
+    highlights: ['Natural colorant', 'Rich in nitrates', 'Vegan-friendly']
+  },
+  {
+    id: 'VN-SPP-012', name: 'Spinach Powder', category: 'Powders', img: 'assets/spinach.jpg',
+    forms: ['Powder', 'Flakes'],
+    short: 'Emerald-green leaf powder for greens blends, pastas and functional foods.',
+    applications: ['Nutraceuticals', 'Bakery', 'Beverages'],
+    b2b: true, b2c: true,
+    packSizes: ['250g', '500g', '1kg', '10kg'],
+    highlights: ['Iron-rich naturally', 'Retains chlorophyll', 'Clean label']
+  },
+  {
+    id: 'VN-MAP-013', name: 'Mango Powder (Amchur alt.)', category: 'Powders', img: 'assets/mango.jpg',
+    forms: ['Powder', 'Flakes', 'Dice', 'Slices'],
+    short: 'Sweet ripe mango powder for beverages, desserts and premium retail lines.',
+    applications: ['Beverages', 'Confectionery', 'Retail'],
+    b2b: true, b2c: true,
+    packSizes: ['200g', '500g', '1kg', '10kg'],
+    highlights: ['Alphonso-style profile', 'Bright golden hue']
+  },
+  {
+    id: 'VN-GUP-014', name: 'Guava Powder', category: 'Powders', img: 'assets/guava.jpg',
+    forms: ['Powder', 'Flakes', 'Dice'],
+    short: 'Tropical guava powder for nutraceutical, beverage and functional applications.',
+    applications: ['Beverages', 'Nutraceuticals'],
+    b2b: true, b2c: false,
+    packSizes: ['500g', '1kg', '10kg'],
+    highlights: ['Vitamin C rich naturally', 'Aromatic']
+  },
+  {
+    id: 'VN-LEP-015', name: 'Lemon Powder', category: 'Powders', img: 'assets/lemon.jpg',
+    forms: ['Powder', 'Flakes', 'Slices', 'Peel'],
+    short: 'Citrus-forward powder for beverages, seasonings and confectionery.',
+    applications: ['Beverages', 'Seasonings', 'Confectionery'],
+    b2b: true, b2c: true,
+    packSizes: ['200g', '500g', '1kg', '10kg'],
+    highlights: ['Bright acidity', 'Zest available separately']
+  },
+  {
+    id: 'VN-PIP-016', name: 'Pineapple Powder', category: 'Powders', img: 'assets/pineapple.jpg',
+    forms: ['Powder', 'Dice', 'Slices'],
+    short: 'Tropical pineapple powder for beverage, dessert and functional food applications.',
+    applications: ['Beverages', 'Confectionery', 'Nutraceuticals'],
+    b2b: true, b2c: true,
+    packSizes: ['250g', '500g', '1kg', '10kg'],
+    highlights: ['Natural sweetness', 'Golden color']
+  },
+  {
+    id: 'VN-PAP-017', name: 'Papaya Powder', category: 'Powders', img: 'assets/papaya.jpg',
+    forms: ['Powder', 'Flakes', 'Dice', 'Strips'],
+    short: 'Enzyme-rich papaya powder for nutraceutical and functional beverage lines.',
+    applications: ['Nutraceuticals', 'Beverages'],
+    b2b: true, b2c: false,
+    packSizes: ['500g', '1kg', '10kg'],
+    highlights: ['Natural enzyme content', 'Warm amber color']
+  }
+];
+
+window.VN_CATEGORIES = [
+  { key: 'All', label: 'All Products' },
+  { key: 'Powders', label: 'Powders' },
+  { key: 'Flakes', label: 'Flakes' },
+  { key: 'Vegetables', label: 'Dehydrated Vegetables', filter: p => ['Onion Powder','Onion Flakes','Garlic Powder','Garlic Flakes','Potato Powder','Potato Flakes','Tomato Powder','Carrot Powder','Beetroot Powder','Spinach Powder'].includes(p.name) },
+  { key: 'Fruits', label: 'Dehydrated Fruits', filter: p => ['Banana Powder','Banana Flakes','Mango Powder (Amchur alt.)','Guava Powder','Lemon Powder','Pineapple Powder','Papaya Powder'].includes(p.name) }
+];
+
+window.VN_APPLICATIONS = [
+  { name: 'Food Manufacturing', icon: '🏭', desc: 'Reliable ingredient inputs for large-scale food production.' },
+  { name: 'Seasonings', icon: '🧂', desc: 'Dry blends, rubs, spice premixes and flavor systems.' },
+  { name: 'Soups & Sauces', icon: '🥣', desc: 'Instant soup bases, gravy powders and sauce concentrates.' },
+  { name: 'Ready-to-Eat Foods', icon: '🍱', desc: 'Retort meals, instant mixes, and convenience foods.' },
+  { name: 'Bakery', icon: '🥐', desc: 'Natural color, flavor and functional ingredients for baked goods.' },
+  { name: 'Confectionery', icon: '🍬', desc: 'Fruit powders and colorants for candies and desserts.' },
+  { name: 'Beverages', icon: '🥤', desc: 'Smoothie mixes, health drinks and functional beverages.' },
+  { name: 'Nutraceuticals', icon: '💊', desc: 'Wellness formulations, supplements and functional powders.' },
+  { name: 'HoReCa', icon: '🍽️', desc: 'Hotel, restaurant and catering-grade ingredients in bulk.' },
+  { name: 'Retail', icon: '🛒', desc: 'Consumer-facing pack sizes for grocery and modern trade.' },
+  { name: 'OEM / Private Label', icon: '🏷️', desc: 'Custom-branded manufacturing and packaging.' },
+  { name: 'Export', icon: '🌍', desc: 'Export-oriented supply with documentation support.' }
+];
+
+</script>
+<script>
+// Verdanta Naturals — Site JS
+(function(){
+  const $ = (s, r=document) => r.querySelector(s);
+  const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+  const WA = '919925551736';
+  const waLink = (msg) => `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
+
+  // ---------- Nav toggle ----------
+  const menuBtn = $('.menu-toggle');
+  const nav = $('.nav');
+  if (menuBtn) menuBtn.addEventListener('click', () => nav.classList.toggle('open'));
+
+  // ---------- Product grid render ----------
+  const grid = $('#p-grid');
+  const filters = $('#p-filters');
+  let activeFilter = 'All';
+
+  function renderProducts(){
+    const list = window.VN_PRODUCTS.filter(p => {
+      if (activeFilter === 'All') return true;
+      if (activeFilter === 'Powders') return p.category === 'Powders';
+      if (activeFilter === 'Flakes') return p.category === 'Flakes';
+      if (activeFilter === 'Vegetables') return ['Onion Powder','Onion Flakes','Garlic Powder','Garlic Flakes','Potato Powder','Potato Flakes','Tomato Powder','Carrot Powder','Beetroot Powder','Spinach Powder'].includes(p.name);
+      if (activeFilter === 'Fruits') return ['Banana Powder','Banana Flakes','Mango Powder (Amchur alt.)','Guava Powder','Lemon Powder','Pineapple Powder','Papaya Powder'].includes(p.name);
+      return true;
+    });
+    grid.innerHTML = list.map(p => {
+      const waMsg = `Hello Verdanta Naturals, I am interested in ${p.name} (${p.id}). Please share product details, pack sizes and pricing.`;
+      return `
+      <article class="p-card">
+        <div class="p-img">
+          <img src="${p.img}" alt="${p.name} — dehydrated ingredient by Verdanta Naturals" loading="lazy">
+          ${p.featured ? '<span class="p-tag">Featured</span>' : ''}
+        </div>
+        <div class="p-body">
+          <div class="p-cat">${p.category}</div>
+          <h3>${p.name}</h3>
+          <p class="p-desc">${p.short}</p>
+          <div class="p-forms">${p.forms.slice(0,4).map(f => `<span>${f}</span>`).join('')}</div>
+          <div class="p-actions">
+            <button class="btn btn-ghost btn-sm" data-view="${p.id}">View</button>
+            <a class="btn btn-wa btn-sm" href="${waLink(waMsg)}" target="_blank">
+              <svg style="width:14px;height:14px;" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.8-.9-2.1-1s-.5-.15-.7.15-.8 1-1 1.2-.4.2-.7.05c-1.8-.9-3-1.6-4.2-3.6-.3-.55.3-.5.9-1.7.1-.2 0-.4-.05-.55S9 6.5 8.8 6c-.2-.5-.4-.4-.55-.4h-.5c-.15 0-.4.05-.6.3-.2.25-.8.8-.8 1.9s.8 2.2 1 2.4c.15.2 1.7 2.6 4.1 3.6 1.5.65 2.1.7 2.8.6.4-.05 1.35-.55 1.55-1.1.2-.55.2-1 .15-1.1-.05-.1-.25-.15-.55-.3zM12 2C6.5 2 2 6.5 2 12c0 1.75.5 3.4 1.3 4.85L2 22l5.25-1.35A9.94 9.94 0 0012 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18a8 8 0 01-4.15-1.15l-.3-.2-3.15.8.85-3.05-.2-.3A8 8 0 1112 20z"/></svg>
+              Enquire
+            </a>
+          </div>
+        </div>
+      </article>`;
+    }).join('');
+  }
+
+  if (filters) {
+    filters.addEventListener('click', e => {
+      const btn = e.target.closest('.filter-chip');
+      if (!btn) return;
+      $$('.filter-chip', filters).forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.dataset.filter;
+      renderProducts();
+    });
+  }
+
+  // ---------- Product detail modal ----------
+  const productModal = $('#product-modal');
+  const productBody = $('#product-body');
+
+  function openProduct(id){
+    const p = window.VN_PRODUCTS.find(x => x.id === id);
+    if (!p) return;
+    const waMsg = `Hello Verdanta Naturals, I am interested in ${p.name} (${p.id}). Please share product details, pack sizes and pricing.`;
+    productBody.innerHTML = `
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+        <div>
+          <img src="${p.img}" alt="${p.name}" style="width:100%;border-radius:12px;">
+          <div style="margin-top:16px;padding:16px;background:var(--off);border-radius:8px;font-size:.85rem;">
+            <b style="color:var(--green-deep);display:block;margin-bottom:6px;">Product ID</b>
+            <code style="font-family:'JetBrains Mono',monospace;color:var(--purple);">${p.id}</code>
+          </div>
+        </div>
+        <div>
+          <div class="p-cat" style="margin-bottom:6px;">${p.category}</div>
+          <h2 style="font-size:2rem;margin:0 0 12px;">${p.name}</h2>
+          <p style="font-size:1rem;">${p.short}</p>
+
+          <h4 style="margin-top:20px;">Available Forms</h4>
+          <div class="p-forms">${p.forms.map(f => `<span>${f}</span>`).join('')}</div>
+
+          <h4 style="margin-top:20px;">Pack Sizes</h4>
+          <div class="p-forms">${p.packSizes.map(s => `<span>${s}</span>`).join('')}</div>
+
+          <h4 style="margin-top:20px;">Applications</h4>
+          <div class="p-forms">${p.applications.map(a => `<span>${a}</span>`).join('')}</div>
+
+          <h4 style="margin-top:20px;">Highlights</h4>
+          <ul style="padding-left:20px;font-size:.9rem;color:var(--char-soft);">
+            ${p.highlights.map(h => `<li>${h}</li>`).join('')}
+          </ul>
+
+          <div style="display:flex;gap:8px;margin-top:24px;flex-wrap:wrap;">
+            <a class="btn btn-wa btn-lg" href="${waLink(waMsg)}" target="_blank">
+              <svg class="wa-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.8-.9-2.1-1s-.5-.15-.7.15-.8 1-1 1.2-.4.2-.7.05c-1.8-.9-3-1.6-4.2-3.6-.3-.55.3-.5.9-1.7.1-.2 0-.4-.05-.55S9 6.5 8.8 6c-.2-.5-.4-.4-.55-.4h-.5c-.15 0-.4.05-.6.3-.2.25-.8.8-.8 1.9s.8 2.2 1 2.4c.15.2 1.7 2.6 4.1 3.6 1.5.65 2.1.7 2.8.6.4-.05 1.35-.55 1.55-1.1.2-.55.2-1 .15-1.1-.05-.1-.25-.15-.55-.3zM12 2C6.5 2 2 6.5 2 12c0 1.75.5 3.4 1.3 4.85L2 22l5.25-1.35A9.94 9.94 0 0012 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18a8 8 0 01-4.15-1.15l-.3-.2-3.15.8.85-3.05-.2-.3A8 8 0 1112 20z"/></svg>
+              Enquire on WhatsApp
+            </a>
+            <button class="btn btn-ghost" data-quick data-product="${p.name}">Quick Enquiry Form</button>
+          </div>
+        </div>
+      </div>
+    `;
+    openModal(productModal);
+  }
+
+  // ---------- Modal system ----------
+  function openModal(m){
+    document.body.style.overflow = 'hidden';
+    m.classList.add('open');
+  }
+  function closeModal(m){
+    document.body.style.overflow = '';
+    m.classList.remove('open');
+  }
+  $$('.modal-backdrop').forEach(bd => {
+    bd.addEventListener('click', e => { if (e.target === bd) closeModal(bd); });
+    bd.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', () => closeModal(bd)));
+  });
+
+  // ---------- Event delegation ----------
+  document.addEventListener('click', e => {
+    const view = e.target.closest('[data-view]');
+    const quick = e.target.closest('[data-quick]');
+    if (view) { openProduct(view.dataset.view); }
+    if (quick) {
+      const productName = quick.dataset.product || '';
+      openQuickEnquiry(productName);
+    }
+  });
+
+  // ---------- Quick Enquiry Form (short — 4 fields) ----------
+  const enqModal = $('#enq-modal');
+  const enqBody = $('#enq-body');
+  const enqTitle = $('#enq-title');
+  const enqSubtitle = $('#enq-subtitle');
+
+  function openQuickEnquiry(productHint = ''){
+    enqTitle.textContent = 'Send Your Enquiry';
+    enqSubtitle.textContent = 'Fill 4 quick details — we\'ll respond on WhatsApp within business hours.';
+    enqBody.innerHTML = `
+      <form id="enq-form">
+        <div class="form-grid">
+          <div class="field full">
+            <label>Name <span class="req">*</span></label>
+            <input name="name" required placeholder="Your full name">
+          </div>
+          <div class="field full">
+            <label>Phone Number <span class="req">*</span></label>
+            <input name="phone" required placeholder="+91 ..." inputmode="tel">
+          </div>
+          <div class="field full">
+            <label>Email</label>
+            <input name="email" type="email" placeholder="you@company.com">
+          </div>
+          <div class="field full">
+            <label>Requirement Details <span class="req">*</span></label>
+            <textarea name="requirement" required rows="4" placeholder="Product, quantity, application, delivery location, timeline…">${productHint ? `Product of interest: ${productHint}\n\nQuantity: \nApplication: \nDelivery location: ` : ''}</textarea>
+          </div>
+          <div class="field full">
+            <label class="check-row">
+              <input type="checkbox" required>
+              I agree that Verdanta Naturals LLP may contact me on WhatsApp regarding this enquiry.
+            </label>
+          </div>
+        </div>
+        <p style="font-size:.82rem;color:var(--char-soft);margin:14px 0 0;display:flex;align-items:center;gap:8px;">
+          <svg style="width:16px;height:16px;color:#25D366;flex-shrink:0;" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.8-.9-2.1-1s-.5-.15-.7.15-.8 1-1 1.2-.4.2-.7.05c-1.8-.9-3-1.6-4.2-3.6-.3-.55.3-.5.9-1.7.1-.2 0-.4-.05-.55S9 6.5 8.8 6c-.2-.5-.4-.4-.55-.4h-.5c-.15 0-.4.05-.6.3-.2.25-.8.8-.8 1.9s.8 2.2 1 2.4c.15.2 1.7 2.6 4.1 3.6 1.5.65 2.1.7 2.8.6.4-.05 1.35-.55 1.55-1.1.2-.55.2-1 .15-1.1-.05-.1-.25-.15-.55-.3zM12 2C6.5 2 2 6.5 2 12c0 1.75.5 3.4 1.3 4.85L2 22l5.25-1.35A9.94 9.94 0 0012 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18a8 8 0 01-4.15-1.15l-.3-.2-3.15.8.85-3.05-.2-.3A8 8 0 1112 20z"/></svg>
+          On submit, your enquiry opens directly in WhatsApp addressed to <b style="color:var(--green-deep);">+91 99255 51736</b>.
+        </p>
+        <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:20px;">
+          <button type="button" class="btn btn-ghost" data-close>Cancel</button>
+          <button type="submit" class="btn btn-wa btn-lg">
+            <svg style="width:18px;height:18px;" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.8-.9-2.1-1s-.5-.15-.7.15-.8 1-1 1.2-.4.2-.7.05c-1.8-.9-3-1.6-4.2-3.6-.3-.55.3-.5.9-1.7.1-.2 0-.4-.05-.55S9 6.5 8.8 6c-.2-.5-.4-.4-.55-.4h-.5c-.15 0-.4.05-.6.3-.2.25-.8.8-.8 1.9s.8 2.2 1 2.4c.15.2 1.7 2.6 4.1 3.6 1.5.65 2.1.7 2.8.6.4-.05 1.35-.55 1.55-1.1.2-.55.2-1 .15-1.1-.05-.1-.25-.15-.55-.3zM12 2C6.5 2 2 6.5 2 12c0 1.75.5 3.4 1.3 4.85L2 22l5.25-1.35A9.94 9.94 0 0012 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18a8 8 0 01-4.15-1.15l-.3-.2-3.15.8.85-3.05-.2-.3A8 8 0 1112 20z"/></svg>
+            Send via WhatsApp
+          </button>
+        </div>
+      </form>
+    `;
+    openModal(enqModal);
+
+    const form = $('#enq-form', enqBody);
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const name = (fd.get('name') || '').toString().trim();
+      const phone = (fd.get('phone') || '').toString().trim();
+      const email = (fd.get('email') || '').toString().trim();
+      const req = (fd.get('requirement') || '').toString().trim();
+      const eid = 'VN-2026-' + String(Math.floor(10000 + Math.random()*89999));
+
+      const msg =
+`Hello Verdanta Naturals,
+
+New Enquiry — ${eid}
+
+Name: ${name}
+Phone: ${phone}${email ? '\nEmail: ' + email : ''}
+
+Requirement:
+${req}
+
+— Sent from verdantanaturals.com`;
+
+      // Persist locally (for the team to review if needed)
+      try {
+        const store = JSON.parse(localStorage.getItem('vn_enquiries') || '[]');
+        store.push({ eid, name, phone, email, requirement: req, at: new Date().toISOString() });
+        localStorage.setItem('vn_enquiries', JSON.stringify(store));
+      } catch(_) {}
+
+      // Show success + auto-open WhatsApp
+      enqBody.innerHTML = `
+        <div class="form-success">
+          <div class="ok-ic">✓</div>
+          <h2>Opening WhatsApp…</h2>
+          <p>Your enquiry is ready to send. If WhatsApp didn't open, tap the button below.</p>
+          <div class="eid">Reference: ${eid}</div>
+          <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px;">
+            <a class="btn btn-wa btn-lg" href="${waLink(msg)}" target="_blank">
+              <svg style="width:18px;height:18px;" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.8-.9-2.1-1s-.5-.15-.7.15-.8 1-1 1.2-.4.2-.7.05c-1.8-.9-3-1.6-4.2-3.6-.3-.55.3-.5.9-1.7.1-.2 0-.4-.05-.55S9 6.5 8.8 6c-.2-.5-.4-.4-.55-.4h-.5c-.15 0-.4.05-.6.3-.2.25-.8.8-.8 1.9s.8 2.2 1 2.4c.15.2 1.7 2.6 4.1 3.6 1.5.65 2.1.7 2.8.6.4-.05 1.35-.55 1.55-1.1.2-.55.2-1 .15-1.1-.05-.1-.25-.15-.55-.3zM12 2C6.5 2 2 6.5 2 12c0 1.75.5 3.4 1.3 4.85L2 22l5.25-1.35A9.94 9.94 0 0012 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18a8 8 0 01-4.15-1.15l-.3-.2-3.15.8.85-3.05-.2-.3A8 8 0 1112 20z"/></svg>
+              Open WhatsApp
+            </a>
+            <button class="btn btn-ghost" data-close>Close</button>
+          </div>
+        </div>
+      `;
+      // Auto-navigate
+      window.open(waLink(msg), '_blank');
+      enqBody.querySelector('[data-close]').addEventListener('click', () => closeModal(enqModal));
+    });
+  }
+
+  // Expose for inline handlers
+  window.openQuickEnquiry = openQuickEnquiry;
+
+  // ---------- Init ----------
+  renderProducts();
+
+  // Smooth scroll
+  $$('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id.length < 2) return;
+      const t = document.querySelector(id);
+      if (!t) return;
+      e.preventDefault();
+      window.scrollTo({ top: t.offsetTop - 70, behavior: 'smooth' });
+      if (nav && nav.classList.contains('open')) nav.classList.remove('open');
+    });
+  });
+})();
+
+</script>
 </body>
 </html>
