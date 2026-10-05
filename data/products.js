@@ -1,7 +1,7 @@
 // Verdanta Naturals — Product Catalog
 window.VN_PRODUCTS = [
   {
-    id: 'VN-ONP-001', name: 'Onion Powder', category: 'Powders', img: 'assets/onion.jpg',
+    id: 'VN-ONP-001', name: 'Onion Powder', category: 'Powders', img: 'assets/onion.png',
     forms: ['Powder', 'Flakes', 'Granules', 'Chopped', 'Kibbled'],
     short: 'Uncompromised savory depth. Dissolves instantly into blends, dry rubs and premixes.',
     applications: ['Seasonings', 'Soups & Sauces', 'Bakery', 'Ready-to-Eat'],
@@ -10,7 +10,7 @@ window.VN_PRODUCTS = [
     highlights: ['Zero preservatives', 'No added colors', 'Hygienically processed', 'Available in Red or White']
   },
   {
-    id: 'VN-ONF-002', name: 'Onion Flakes', category: 'Flakes', img: 'assets/onion.jpg',
+    id: 'VN-ONF-002', name: 'Onion Flakes', category: 'Flakes', img: 'assets/onion.png',
     forms: ['Flakes', 'Minced', 'Chopped'],
     short: 'Reconstitutes to near-fresh texture. Ideal for soups, biryanis, and pizza toppings.',
     applications: ['Soups & Sauces', 'HoReCa', 'Ready-to-Eat', 'Food Manufacturing'],
@@ -19,7 +19,7 @@ window.VN_PRODUCTS = [
     highlights: ['Red / White variants', 'Toasted variant available', 'Consistent cut size']
   },
   {
-    id: 'VN-GAP-003', name: 'Garlic Powder', category: 'Powders', img: 'assets/garlic.jpg',
+    id: 'VN-GAP-003', name: 'Garlic Powder', category: 'Powders', img: 'assets/garlic.png',
     forms: ['Powder', 'Granules', 'Flakes'],
     short: 'Pure garlic pungency without moisture. Perfect for seasoning blends and marinades.',
     applications: ['Seasonings', 'Bakery', 'Food Manufacturing', 'Nutraceuticals'],
@@ -28,7 +28,7 @@ window.VN_PRODUCTS = [
     highlights: ['Rich aroma', 'Consistent mesh', 'Suitable for premixes']
   },
   {
-    id: 'VN-GAF-004', name: 'Garlic Flakes', category: 'Flakes', img: 'assets/garlic.jpg',
+    id: 'VN-GAF-004', name: 'Garlic Flakes', category: 'Flakes', img: 'assets/garlic.png',
     forms: ['Flakes', 'Sliced', 'Chopped'],
     short: 'Clean, uniform garlic flakes ready to rehydrate for pastes, curries and toppings.',
     applications: ['HoReCa', 'Ready-to-Eat', 'Food Manufacturing'],
@@ -37,7 +37,7 @@ window.VN_PRODUCTS = [
     highlights: ['Long shelf life', 'Uniform cut', 'Bulk packaging available']
   },
   {
-    id: 'VN-POP-005', name: 'Potato Powder', category: 'Powders', img: 'assets/potato.jpg',
+    id: 'VN-POP-005', name: 'Potato Powder', category: 'Powders', img: 'assets/potato.png',
     forms: ['Powder', 'Flakes', 'Granules', 'Dice', 'Slices'],
     short: 'A versatile carrier and thickener for soups, snacks and instant food formulations.',
     applications: ['Soups & Sauces', 'Bakery', 'Ready-to-Eat', 'Food Manufacturing'],
@@ -46,7 +46,7 @@ window.VN_PRODUCTS = [
     highlights: ['Neutral flavor', 'Excellent binding', 'Consistent particle size']
   },
   {
-    id: 'VN-POF-006', name: 'Potato Flakes', category: 'Flakes', img: 'assets/potato.jpg',
+    id: 'VN-POF-006', name: 'Potato Flakes', category: 'Flakes', img: 'assets/potato.png',
     forms: ['Flakes', 'Granules'],
     short: 'Instant potato flakes for mash, snacks and reconstituted foods.',
     applications: ['Ready-to-Eat', 'HoReCa', 'Food Manufacturing'],
@@ -55,7 +55,7 @@ window.VN_PRODUCTS = [
     highlights: ['Quick rehydration', 'Smooth texture']
   },
   {
-    id: 'VN-BAP-007', name: 'Banana Powder', category: 'Powders', img: 'assets/banana.jpg',
+    id: 'VN-BAP-007', name: 'Banana Powder', category: 'Powders', img: 'assets/banana.png',
     forms: ['Powder', 'Flakes', 'Dice', 'Chips'],
     short: 'Naturally sweet, energy-dense powder for smoothies, baby food and nutraceuticals.',
     applications: ['Beverages', 'Bakery', 'Nutraceuticals', 'Retail'],
@@ -64,7 +64,7 @@ window.VN_PRODUCTS = [
     highlights: ['Ripe banana processed', 'High potassium naturally', 'Clean label']
   },
   {
-    id: 'VN-BAF-008', name: 'Banana Flakes', category: 'Flakes', img: 'assets/banana.jpg',
+    id: 'VN-BAF-008', name: 'Banana Flakes', category: 'Flakes', img: 'assets/banana.png',
     forms: ['Flakes', 'Chips', 'Dice'],
     short: 'Crunchy banana flakes for cereals, granolas and snack formulations.',
     applications: ['Bakery', 'Retail', 'Ready-to-Eat'],
@@ -73,7 +73,7 @@ window.VN_PRODUCTS = [
     highlights: ['Crunchy texture', 'Natural sweetness']
   },
   {
-    id: 'VN-TOP-009', name: 'Tomato Powder', category: 'Powders', img: 'assets/tomato.jpg',
+    id: 'VN-TOP-009', name: 'Tomato Powder', category: 'Powders', img: 'assets/tomato.png',
     forms: ['Powder', 'Flakes', 'Dice', 'Granules'],
     short: 'Concentrated tomato flavor and color for sauces, soups and seasoning blends.',
     applications: ['Soups & Sauces', 'Seasonings', 'Food Manufacturing'],
@@ -82,7 +82,7 @@ window.VN_PRODUCTS = [
     highlights: ['Deep red color', 'Rich umami', 'No added color']
   },
   {
-    id: 'VN-CAP-010', name: 'Carrot Powder', category: 'Powders', img: 'assets/carrot.jpg',
+    id: 'VN-CAP-010', name: 'Carrot Powder', category: 'Powders', img: 'assets/carrot.png',
     forms: ['Powder', 'Flakes', 'Dice', 'Shredded'],
     short: 'Natural beta-carotene rich powder for beverages, nutraceuticals and bakery.',
     applications: ['Beverages', 'Nutraceuticals', 'Bakery'],
@@ -91,7 +91,7 @@ window.VN_PRODUCTS = [
     highlights: ['Vibrant orange', 'Vitamin-rich', 'Clean label']
   },
   {
-    id: 'VN-BEP-011', name: 'Beetroot Powder', category: 'Powders', img: 'assets/beetroot.jpg',
+    id: 'VN-BEP-011', name: 'Beetroot Powder', category: 'Powders', img: 'assets/beetroot.png',
     forms: ['Powder', 'Flakes', 'Dice', 'Slices', 'Shredded'],
     short: 'Rich crimson powder — a natural colorant and functional ingredient.',
     applications: ['Beverages', 'Nutraceuticals', 'Bakery', 'Confectionery'],
@@ -100,7 +100,7 @@ window.VN_PRODUCTS = [
     highlights: ['Natural colorant', 'Rich in nitrates', 'Vegan-friendly']
   },
   {
-    id: 'VN-SPP-012', name: 'Spinach Powder', category: 'Powders', img: 'assets/spinach.jpg',
+    id: 'VN-SPP-012', name: 'Spinach Powder', category: 'Powders', img: 'assets/spinach.png',
     forms: ['Powder', 'Flakes'],
     short: 'Emerald-green leaf powder for greens blends, pastas and functional foods.',
     applications: ['Nutraceuticals', 'Bakery', 'Beverages'],
@@ -109,7 +109,7 @@ window.VN_PRODUCTS = [
     highlights: ['Iron-rich naturally', 'Retains chlorophyll', 'Clean label']
   },
   {
-    id: 'VN-MAP-013', name: 'Mango Powder (Amchur alt.)', category: 'Powders', img: 'assets/mango.jpg',
+    id: 'VN-MAP-013', name: 'Mango Powder (Amchur alt.)', category: 'Powders', img: 'assets/mango.png',
     forms: ['Powder', 'Flakes', 'Dice', 'Slices'],
     short: 'Sweet ripe mango powder for beverages, desserts and premium retail lines.',
     applications: ['Beverages', 'Confectionery', 'Retail'],
@@ -118,7 +118,7 @@ window.VN_PRODUCTS = [
     highlights: ['Alphonso-style profile', 'Bright golden hue']
   },
   {
-    id: 'VN-GUP-014', name: 'Guava Powder', category: 'Powders', img: 'assets/guava.jpg',
+    id: 'VN-GUP-014', name: 'Guava Powder', category: 'Powders', img: 'assets/guava.png',
     forms: ['Powder', 'Flakes', 'Dice'],
     short: 'Tropical guava powder for nutraceutical, beverage and functional applications.',
     applications: ['Beverages', 'Nutraceuticals'],
@@ -127,7 +127,7 @@ window.VN_PRODUCTS = [
     highlights: ['Vitamin C rich naturally', 'Aromatic']
   },
   {
-    id: 'VN-LEP-015', name: 'Lemon Powder', category: 'Powders', img: 'assets/lemon.jpg',
+    id: 'VN-LEP-015', name: 'Lemon Powder', category: 'Powders', img: 'assets/lemon.png',
     forms: ['Powder', 'Flakes', 'Slices', 'Peel'],
     short: 'Citrus-forward powder for beverages, seasonings and confectionery.',
     applications: ['Beverages', 'Seasonings', 'Confectionery'],
@@ -136,7 +136,7 @@ window.VN_PRODUCTS = [
     highlights: ['Bright acidity', 'Zest available separately']
   },
   {
-    id: 'VN-PIP-016', name: 'Pineapple Powder', category: 'Powders', img: 'assets/pineapple.jpg',
+    id: 'VN-PIP-016', name: 'Pineapple Powder', category: 'Powders', img: 'assets/pineapple.png',
     forms: ['Powder', 'Dice', 'Slices'],
     short: 'Tropical pineapple powder for beverage, dessert and functional food applications.',
     applications: ['Beverages', 'Confectionery', 'Nutraceuticals'],
@@ -145,7 +145,7 @@ window.VN_PRODUCTS = [
     highlights: ['Natural sweetness', 'Golden color']
   },
   {
-    id: 'VN-PAP-017', name: 'Papaya Powder', category: 'Powders', img: 'assets/papaya.jpg',
+    id: 'VN-PAP-017', name: 'Papaya Powder', category: 'Powders', img: 'assets/papaya.png',
     forms: ['Powder', 'Flakes', 'Dice', 'Strips'],
     short: 'Enzyme-rich papaya powder for nutraceutical and functional beverage lines.',
     applications: ['Nutraceuticals', 'Beverages'],
