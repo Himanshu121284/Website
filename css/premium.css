@@ -1,0 +1,40 @@
+/* Premium layer — loaded after site.css */
+[hidden]{display:none!important}
+html{scroll-padding-top:96px}
+.hdr-inner{padding:8px 0}
+.brand img.brand-logo-lg{height:76px}
+@media(max-width:640px){.brand img.brand-logo-lg{height:56px}}
+.nav a{font-weight:500}
+
+.hero{padding:96px 0 110px;background:radial-gradient(900px 480px at 88% 0%,rgba(197,154,61,.22),transparent 62%),linear-gradient(160deg,#0d2a1c 0%,#173F2A 58%,#1f4d36 100%)}
+.hero::before,.hero::after{display:none}
+.hero h1{color:#fff}
+.hero h1 span.acc{color:#E3BE6A}
+.hero .lede{color:rgba(255,255,255,.84)}
+.hero .btn-primary{background:var(--gold);color:#1a2b20}
+.hero .btn-primary:hover{background:#d8ac4d;color:#1a2b20}
+.hero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.55)}
+.hero .btn-ghost:hover{background:#fff;color:var(--green-deep)}
+.hero-stats{border-top:1px solid rgba(255,255,255,.18)}
+.hero-stats .stat b{color:#fff}
+.hero-stats .stat span{color:rgba(255,255,255,.7)}
+.hero-visual img{box-shadow:0 30px 70px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.12)}
+
+.trust{background:#fff;border-bottom:1px solid var(--line)}
+.trust-in{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;padding:26px 0}
+.trust-in div{display:flex;flex-direction:column;gap:2px;padding-left:16px;border-left:3px solid var(--gold)}
+.trust-in b{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--green-deep)}
+.trust-in span{font-size:.84rem;color:var(--char-soft)}
+
+.steps-sec{background:var(--off)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:40px;counter-reset:s}
+.step{counter-increment:s;background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:14px;padding:28px 24px;box-shadow:var(--shadow-sm)}
+.step::before{content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--green-deep);color:#E3BE6A;font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;margin-bottom:16px}
+.step h3{font-size:1.3rem;margin-bottom:.4em}
+.step p{margin:0;font-size:.92rem;color:var(--char-soft)}
+
+section{padding-top:84px;padding-bottom:84px}
+.hero,.final-cta,.section-dark{padding-top:96px;padding-bottom:96px}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid #E3BE6A;outline-offset:3px}
+@media(max-width:900px){.trust-in,.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.trust-in,.steps{grid-template-columns:1fr}.hero{padding:64px 0 72px}section{padding-top:60px;padding-bottom:60px}}
